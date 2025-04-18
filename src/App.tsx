@@ -3,21 +3,22 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navigation from "./components/Navigation";
 import Index from "./pages/Index";
+import Applicant from "./pages/Applicant";
+import HR from "./pages/HR";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  // Add stars to background for enhanced futuristic effect
   useEffect(() => {
     const createStars = () => {
       const starsContainer = document.createElement('div');
       starsContainer.classList.add('fixed', 'inset-0', 'z-[-1]', 'overflow-hidden');
       document.body.appendChild(starsContainer);
       
-      // Create 100 stars with random positions
       for (let i = 0; i < 100; i++) {
         const star = document.createElement('div');
         const size = Math.random() * 2;
@@ -36,7 +37,6 @@ const App = () => {
         starsContainer.appendChild(star);
       }
       
-      // Add keyframes for twinkling animation
       const style = document.createElement('style');
       style.textContent = `
         @keyframes twinkle {
@@ -49,7 +49,6 @@ const App = () => {
     
     createStars();
     
-    // Clean up function
     return () => {
       const starsContainer = document.querySelector('div.fixed.inset-0.z-\\[-1\\]');
       if (starsContainer) {
@@ -70,9 +69,11 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <div className="min-h-screen w-full overflow-x-hidden">
+            <Navigation />
             <Routes>
               <Route path="/" element={<Index />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="/applicant" element={<Applicant />} />
+              <Route path="/hr" element={<HR />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
