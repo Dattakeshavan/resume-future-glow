@@ -1,6 +1,6 @@
 
 import { useState, useRef } from "react";
-import { Upload, FileText, mail } from "lucide-react";
+import { Upload, FileText, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -81,7 +81,7 @@ const Applicant = () => {
     <div className="w-full max-w-xs my-4 flex flex-col items-center gap-2">
       <Label htmlFor="email" className="text-white/80 flex items-center gap-2">
         <span>Applicant Email</span>
-        <mail className="w-4 h-4 text-resumate-glow-blue" />
+        <Mail className="w-4 h-4 text-resumate-glow-blue" />
       </Label>
       <Input
         id="email"
@@ -106,7 +106,7 @@ const Applicant = () => {
     <div className="w-full max-w-xs mt-4 flex flex-col items-center gap-2">
       <Label htmlFor="email-complete" className="text-white/80 flex items-center gap-2">
         <span>Email</span>
-        <mail className="w-4 h-4 text-resumate-glow-blue" />
+        <Mail className="w-4 h-4 text-resumate-glow-blue" />
       </Label>
       <Input
         id="email-complete"
