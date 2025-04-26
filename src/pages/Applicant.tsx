@@ -1,6 +1,6 @@
 
 import { useState, useRef } from "react";
-import { Upload, FileText, Mail } from "lucide-react";
+import { Upload, FileText, mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -81,7 +81,7 @@ const Applicant = () => {
     <div className="w-full max-w-xs my-4 flex flex-col items-center gap-2">
       <Label htmlFor="email" className="text-white/80 flex items-center gap-2">
         <span>Applicant Email</span>
-        <Mail className="w-4 h-4 text-resumate-glow-blue" />
+        <mail className="w-4 h-4 text-resumate-glow-blue" />
       </Label>
       <Input
         id="email"
@@ -106,7 +106,7 @@ const Applicant = () => {
     <div className="w-full max-w-xs mt-4 flex flex-col items-center gap-2">
       <Label htmlFor="email-complete" className="text-white/80 flex items-center gap-2">
         <span>Email</span>
-        <Mail className="w-4 h-4 text-resumate-glow-blue" />
+        <mail className="w-4 h-4 text-resumate-glow-blue" />
       </Label>
       <Input
         id="email-complete"
@@ -132,9 +132,6 @@ const Applicant = () => {
 
       <section className="upload-section w-full max-w-3xl">
         <div className="glass-card p-8 flex flex-col items-center">
-          {/* Always show email input at the top */}
-          {!isUploaded && emailBox}
-          
           <div 
             className={`resume-upload-zone w-full ${dragActive ? 'active' : ''} ${isUploaded ? 'bg-resumate-glow-blue/10' : ''}`}
             onDragEnter={handleDrag}
@@ -204,6 +201,8 @@ const Applicant = () => {
                   <p className="text-white/80 text-center mb-2">
                     <span className="font-medium text-white">{fileName}</span>
                   </p>
+                  {/* Email Input Box */}
+                  {emailBox}
                   <div className="w-full max-w-xs bg-white/20 h-2 rounded-full overflow-hidden mb-4">
                     <div 
                       className="h-full bg-resumate-glow-blue"
