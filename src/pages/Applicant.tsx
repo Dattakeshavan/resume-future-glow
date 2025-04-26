@@ -76,9 +76,9 @@ const Applicant = () => {
     }, 100);
   };
 
-  // Email input section: now always visible
+  // Email input section: rendered after resume file selected but before upload complete
   const emailBox = (
-    <div className="w-full max-w-xs mb-8 flex flex-col items-center gap-2">
+    <div className="w-full max-w-xs my-4 flex flex-col items-center gap-2">
       <Label htmlFor="email" className="text-white/80 flex items-center gap-2">
         <span>Applicant Email</span>
         <Mail className="w-4 h-4 text-resumate-glow-blue" />
@@ -129,9 +129,6 @@ const Applicant = () => {
       <p className="text-lg text-white/80 max-w-2xl text-center mb-12">
         Let our AI analyze your resume and match you with the perfect opportunities.
       </p>
-
-      {/* Always show the email input field */}
-      {!isUploaded && emailBox}
 
       <section className="upload-section w-full max-w-3xl">
         <div className="glass-card p-8 flex flex-col items-center">
@@ -204,6 +201,8 @@ const Applicant = () => {
                   <p className="text-white/80 text-center mb-2">
                     <span className="font-medium text-white">{fileName}</span>
                   </p>
+                  {/* Email Input Box */}
+                  {emailBox}
                   <div className="w-full max-w-xs bg-white/20 h-2 rounded-full overflow-hidden mb-4">
                     <div 
                       className="h-full bg-resumate-glow-blue"
