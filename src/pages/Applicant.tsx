@@ -132,6 +132,9 @@ const Applicant = () => {
 
       <section className="upload-section w-full max-w-3xl">
         <div className="glass-card p-8 flex flex-col items-center">
+          {/* Always show email input at the top */}
+          {!isUploaded && emailBox}
+          
           <div 
             className={`resume-upload-zone w-full ${dragActive ? 'active' : ''} ${isUploaded ? 'bg-resumate-glow-blue/10' : ''}`}
             onDragEnter={handleDrag}
@@ -201,8 +204,6 @@ const Applicant = () => {
                   <p className="text-white/80 text-center mb-2">
                     <span className="font-medium text-white">{fileName}</span>
                   </p>
-                  {/* Email Input Box */}
-                  {emailBox}
                   <div className="w-full max-w-xs bg-white/20 h-2 rounded-full overflow-hidden mb-4">
                     <div 
                       className="h-full bg-resumate-glow-blue"
